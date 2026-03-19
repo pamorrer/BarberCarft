@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-gold: #D4AF37;
+  --color-gold-light: #F9E29C;
+  --color-gold-dark: #996515;
+  
+  --color-barber-red: #8B0000;
+  --color-barber-blue: #00008B;
+  --color-barber-blue-light: #00aaff;
+}
+
+@layer base {
+  body {
+    @apply bg-zinc-950 text-zinc-100 antialiased;
+  }
+}
+
+@layer utilities {
+  .barber-pole-gradient {
+    background: repeating-linear-gradient(
+      45deg,
+      #fff,
+      #fff 10px,
+      var(--color-barber-red) 10px,
+      var(--color-barber-red) 20px,
+      #fff 20px,
+      #fff 30px,
+      var(--color-barber-blue) 30px,
+      var(--color-barber-blue) 40px
+    );
+  }
+  
+  .text-gold-gradient {
+    @apply bg-clip-text text-transparent bg-linear-to-r from-gold via-gold-light to-gold-dark;
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(72%) sepia(45%) saturate(541%) hue-rotate(1deg) brightness(92%) contrast(88%);
+    cursor: pointer;
+  }
+}
